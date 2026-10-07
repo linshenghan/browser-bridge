@@ -5,26 +5,26 @@
   "extensionId": "omheddjpegohbakodeeikcjenjgenmfj",
   "publishedAt": "2026-10-08",
   "extension": {
-    "zip": "https://dl.linbingbing.asia/browser-bridge/extension.zip",
-    "sha256": "5994bddf99de13a9dfefdcca227e5326836a4797eb8ca42afbf2e8b550180b04"
+    "zip": "https://dl.bingbing.asia/browser-bridge/extension.zip",
+    "sha256": "b06c258a674ad357d86509ce0a2e2d44d62b7e91a3b93fbabc306462c51e8ae0"
   },
   "packages": {
     "windows-x64": {
-      "url": "https://dl.linbingbing.asia/browser-bridge/v0.2.1/browser-bridge-v0.2.1-windows-x64.zip",
-      "sha256": "a9f2fabcb6edea66b70e6dffe839fed24db4e2974d5d39bba793b8531101aa2f"
+      "url": "https://dl.bingbing.asia/browser-bridge/v0.2.1/browser-bridge-v0.2.1-windows-x64.zip",
+      "sha256": "e942324175b9e26757554b8635acca691eb38763fff0e502985e020a87575ca7"
     },
     "macos-arm64": {
-      "url": "https://dl.linbingbing.asia/browser-bridge/v0.2.1/browser-bridge-v0.2.1-macos-arm64.zip",
-      "sha256": "7431982ad7991c2abdcda4e1eedcd417f7261eadd2a71edeb62e2ee1c11c3625"
+      "url": "https://dl.bingbing.asia/browser-bridge/v0.2.1/browser-bridge-v0.2.1-macos-arm64.zip",
+      "sha256": "8598b21e273f3a49982b52e1cdf6112ac8d699c3efb94f3cec71d063f41e8be9"
     },
     "macos-intel": {
-      "url": "https://dl.linbingbing.asia/browser-bridge/v0.2.1/browser-bridge-v0.2.1-macos-intel.zip",
-      "sha256": "0b7103c23af51b6840dbe06abc236729be2f337be3f3f42014d9a4b4374199dc"
+      "url": "https://dl.bingbing.asia/browser-bridge/v0.2.1/browser-bridge-v0.2.1-macos-intel.zip",
+      "sha256": "f1504f7b14f64ee163a6aec82bc54650b7a2a19c7b2bd1ab8a3ac662e567a21f"
     }
   },
   "install": {
-    "windows": "powershell -NoProfile -ExecutionPolicy Bypass -Command \"iwr -useb https://dl.linbingbing.asia/install.ps1 | iex\"",
-    "macos": "curl -fsSL https://dl.linbingbing.asia/install.sh | bash"
+    "windows": "powershell -NoProfile -ExecutionPolicy Bypass -Command \"iwr -useb https://dl.bingbing.asia/install.ps1 | iex\"",
+    "macos": "curl -fsSL https://dl.bingbing.asia/install.sh | bash"
   },
-  "guide": "https://install.linbingbing.asia/"
+  "guide": "https://install.bingbing.asia/"
 }

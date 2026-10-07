@@ -1,14 +1,14 @@
 #!/bin/bash
 # Chrome 操作助手 · macOS 安装脚本
-# 用法：curl -fsSL https://dl.linbingbing.asia/browser-bridge/install.sh | bash
+# 用法：curl -fsSL https://dl.bingbing.asia/browser-bridge/install.sh | bash
 # 幂等：已安装时重复执行只会刷新版本与软链，不会重复注册。
 set -euo pipefail
 
-BASE="https://dl.linbingbing.asia/browser-bridge"
+BASE="https://dl.bingbing.asia/browser-bridge"
 FALLBACK="https://github.com/linshenghan/browser-bridge/releases/download"
 VERSION="${TBB_VERSION:-0.2.1}"
 ROOT="$HOME/BrowserBridge"
-GUIDE="https://install.linbingbing.asia"
+GUIDE="https://install.bingbing.asia"
 
 log()  { printf '\033[1m%s\033[0m\n' "$*"; }
 die()  { printf '\033[31m错误：%s\033[0m\n' "$*" >&2; exit 1; }

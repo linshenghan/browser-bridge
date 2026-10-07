@@ -60,7 +60,7 @@ const manifest = {
   web_accessible_resources: [
     {
       resources: ["manifest.json"],
-      matches: ["https://install.linbingbing.asia/*"],
+      matches: ["https://install.bingbing.asia/*"],
     },
   ],
   background: { service_worker: "background.js", type: "module" },

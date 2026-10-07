@@ -1,11 +1,11 @@
 # Chrome 操作助手 · Windows 安装脚本
-# 用法：powershell -NoProfile -ExecutionPolicy Bypass -Command "iwr -useb https://dl.linbingbing.asia/browser-bridge/install.ps1 | iex"
+# 用法：powershell -NoProfile -ExecutionPolicy Bypass -Command "iwr -useb https://dl.bingbing.asia/browser-bridge/install.ps1 | iex"
 # 幂等：已安装时重复执行只会刷新版本与命令转发，不会重复注册。
 $ErrorActionPreference = 'Stop'
 
-$Base      = 'https://dl.linbingbing.asia/browser-bridge'
+$Base      = 'https://dl.bingbing.asia/browser-bridge'
 $Fallback  = 'https://github.com/linshenghan/browser-bridge/releases/download'
-$GUIDE     = 'https://install.linbingbing.asia'
+$GUIDE     = 'https://install.bingbing.asia'
 $Version   = if ($env:TBB_VERSION) { $env:TBB_VERSION } else { '0.2.1' }
 $Root      = Join-Path $env:USERPROFILE 'BrowserBridge'
 $Zip       = "browser-bridge-v$Version-windows-x64.zip"
