@@ -1,0 +1,10 @@
+{
+  "mcpServers": {
+    "browser_bridge": {
+      "command": "browser-bridge",
+      "args": ["mcp"],
+      "startup_timeout_sec": 30,
+      "tool_timeout_sec": 120
+    }
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "name": "browser-bridge",
+  "displayName": "Chrome 操作助手",
+  "version": "0.2.1",
+  "extensionId": "omheddjpegohbakodeeikcjenjgenmfj",
+  "publishedAt": "2026-10-08",
+  "extension": {
+    "zip": "https://dl.linbingbing.asia/browser-bridge/extension.zip",
+    "sha256": "5994bddf99de13a9dfefdcca227e5326836a4797eb8ca42afbf2e8b550180b04"
+  },
+  "packages": {
+    "windows-x64": {
+      "url": "https://dl.linbingbing.asia/browser-bridge/v0.2.1/browser-bridge-v0.2.1-windows-x64.zip",
+      "sha256": "a9f2fabcb6edea66b70e6dffe839fed24db4e2974d5d39bba793b8531101aa2f"
+    },
+    "macos-arm64": {
+      "url": "https://dl.linbingbing.asia/browser-bridge/v0.2.1/browser-bridge-v0.2.1-macos-arm64.zip",
+      "sha256": "7431982ad7991c2abdcda4e1eedcd417f7261eadd2a71edeb62e2ee1c11c3625"
+    },
+    "macos-intel": {
+      "url": "https://dl.linbingbing.asia/browser-bridge/v0.2.1/browser-bridge-v0.2.1-macos-intel.zip",
+      "sha256": "0b7103c23af51b6840dbe06abc236729be2f337be3f3f42014d9a4b4374199dc"
+    }
+  },
+  "install": {
+    "windows": "powershell -NoProfile -ExecutionPolicy Bypass -Command \"iwr -useb https://dl.linbingbing.asia/install.ps1 | iex\"",
+    "macos": "curl -fsSL https://dl.linbingbing.asia/install.sh | bash"
+  },
+  "guide": "https://install.linbingbing.asia/"
+}

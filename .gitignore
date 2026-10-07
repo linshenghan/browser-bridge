@@ -1,0 +1,11 @@
+node_modules/
+bin/
+extension/dist/
+test-results/
+*.sqlite*
+*.sock
+*.log
+*.tmp-*
+
+# 本机代理验收脚本：依赖用户私有 v2rayN 环境，不进公开仓库
+tests/real-v2ray.ps1

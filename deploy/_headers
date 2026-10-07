@@ -1,0 +1,33 @@
+# 静态资源缓存策略
+/
+  X-Content-Type-Options: nosniff
+
+/index.html
+  Cache-Control: no-cache
+
+/latest.json
+  Cache-Control: no-cache
+
+/install.sh
+  Content-Type: text/x-shellscript; charset=utf-8
+  Cache-Control: no-cache
+
+/install.ps1
+  Content-Type: text/plain; charset=utf-8
+  Cache-Control: no-cache
+
+/browser-bridge/install.sh
+  Content-Type: text/x-shellscript; charset=utf-8
+  Cache-Control: no-cache
+
+/browser-bridge/install.ps1
+  Content-Type: text/plain; charset=utf-8
+  Cache-Control: no-cache
+
+/extension.zip
+  Content-Type: application/zip
+  Cache-Control: no-cache
+
+/browser-bridge/*
+  Content-Type: application/zip
+  Cache-Control: public, max-age=3600

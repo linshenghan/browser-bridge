@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chrome 操作助手 · 扩展安装指引</title>
+<style>
+  :root {
+    --bg: #f6f7f9; --card: #ffffff; --border: #e5e7eb;
+    --text: #1f2328; --muted: #6b7280;
+    --blue: #2563eb; --blue-soft: #eff6ff;
+    --green: #16a34a; --green-soft: #f0fdf4; --green-border: #bbf7d0;
+    --amber: #d97706; --amber-soft: #fffbeb; --amber-border: #fde68a;
+    --red: #dc2626; --red-soft: #fef2f2; --red-border: #fecaca;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+    background: var(--bg); color: var(--text); line-height: 1.6; padding: 32px 16px 80px;
+  }
+  .wrap { max-width: 720px; margin: 0 auto; }
+  h1 { font-size: 26px; margin-bottom: 4px; }
+  .sub { color: var(--muted); margin-bottom: 24px; }
+  .card {
+    background: var(--card); border: 1px solid var(--border); border-radius: 12px;
+    padding: 20px 22px; margin-bottom: 16px;
+  }
+  .step-head { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+  .step-num {
+    width: 28px; height: 28px; border-radius: 50%; background: var(--blue); color: #fff;
+    display: flex; align-items: center; justify-content: center; font-weight: 700; flex-shrink: 0;
+  }
+  .step-title { font-size: 17px; font-weight: 600; }
+  .muted { color: var(--muted); font-size: 14px; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 6px; border: none; cursor: pointer;
+    background: var(--blue); color: #fff; font-size: 15px; font-weight: 600;
+    padding: 10px 20px; border-radius: 8px; text-decoration: none; margin-top: 10px;
+  }
+  .btn:hover { filter: brightness(1.08); }
+  .btn.secondary { background: #eef1f5; color: var(--text); border: 1px solid var(--border); font-weight: 500; }
+  .btn:disabled { opacity: .5; cursor: not-allowed; }
+  .banner { border-radius: 12px; padding: 16px 20px; margin-bottom: 20px; border: 1px solid; }
+  .banner.ok { background: var(--green-soft); border-color: var(--green-border); color: #14532d; }
+  .banner.no { background: var(--amber-soft); border-color: var(--amber-border); color: #78350f; }
+  .banner.bad { background: var(--red-soft); border-color: var(--red-border); color: #7f1d1d; }
+  .banner b { font-size: 15px; }
+  .banner .detail { font-size: 13px; margin-top: 2px; }
+  .code {
+    background: #f3f4f6; border: 1px solid var(--border); border-radius: 6px;
+    font-family: Consolas, Monaco, monospace; font-size: 13px; padding: 2px 8px;
+  }
+  .cmdbox {
+    background: #1f2937; color: #e5e7eb; border-radius: 8px; padding: 12px 14px;
+    font-family: Consolas, Monaco, monospace; font-size: 13px; overflow-x: auto;
+    margin-top: 10px; display: flex; justify-content: space-between; align-items: center; gap: 10px;
+  }
+  .cmdbox button {
+    background: transparent; border: 1px solid #4b5563; color: #d1d5db; border-radius: 5px;
+    padding: 4px 10px; cursor: pointer; font-size: 12px; white-space: nowrap; flex-shrink: 0;
+  }
+  .cmdbox button:hover { background: #374151; }
+  ol { padding-left: 22px; }
+  li { margin: 6px 0; }
+  .warn { background: var(--amber-soft); border: 1px solid var(--amber-border); border-radius: 8px; padding: 10px 14px; font-size: 14px; margin-top: 10px; }
+  .ok-inline { color: var(--green); font-weight: 600; }
+  footer { text-align: center; color: var(--muted); font-size: 13px; margin-top: 40px; }
+  a { color: var(--blue); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Chrome 操作助手 · 浏览器扩展安装</h1>
+  <p class="sub">v0.2.1 · 适用于所有 Chromium 内核浏览器（Chrome / Edge / Brave / Arc…）· 全程约 2 分钟</p>
+
+  <div id="status" class="banner no">
+    <b>⏳ 正在检测扩展状态…</b>
+    <div class="detail">如果你刚完成安装，几秒内这里会自动变绿。</div>
+  </div>
+
+  <div class="card">
+    <div class="step-head"><div class="step-num">1</div><div class="step-title">下载扩展包</div></div>
+    <p class="muted">一个约 107 KB 的 zip 包，不用安装任何额外软件。</p>
+    <a class="btn" href="/extension.zip" download>⬇ 下载扩展包 extension.zip</a>
+  </div>
+
+  <div class="card">
+    <div class="step-head"><div class="step-num">2</div><div class="step-title">解压到固定位置</div></div>
+    <p class="muted">解压后是一个文件夹（里面能看到 <span class="code">manifest.json</span>）。<b>请放在一个你不会删掉、不会移动的文件夹里</b>，以后升级也要用到它。</p>
+    <p class="muted" style="margin-top:8px">建议解压到：<span class="code" id="suggestPath"></span>
+      <button class="btn secondary" style="margin:0 0 0 8px; padding:4px 12px; font-size:13px" onclick="copyText(document.getElementById('suggestPath').textContent, this)">复制</button>
+    </p>
+    <p class="muted" style="margin-top:8px">⚠️ 不要只解压进「下载」文件夹然后随手清空 —— 文件夹一旦删了，扩展就会失效。</p>
+  </div>
+
+  <div class="card">
+    <div class="step-head"><div class="step-num">3</div><div class="step-title">打开浏览器的扩展管理页</div></div>
+    <p class="muted">浏览器地址栏输入（浏览器内核不同，地址不同）：</p>
+    <div class="cmdbox"><span id="extUrl">chrome://extensions</span><button onclick="copyText(document.getElementById('extUrl').textContent, this)">复制地址</button></div>
+    <p class="muted" style="margin-top:6px">这类系统页面无法通过链接直接跳转，必须手动粘贴到地址栏回车。</p>
+  </div>
+
+  <div class="card">
+    <div class="step-head"><div class="step-num">4</div><div class="step-title">开启「开发者模式」并加载扩展</div></div>
+    <ol>
+      <li>在扩展管理页<b>右上角</b>打开「<b>开发者模式</b>」开关</li>
+      <li>点左上角出现的「<b>加载已解压的扩展程序</b>」（Edge 里叫「加载解压缩的扩展」）</li>
+      <li>选中第 2 步<b>解压出来的文件夹</b>（里面有 manifest.json 的那一层）</li>
+    </ol>
+    <p class="muted" style="margin-top:8px">成功后列表里会出现「<b>Chrome 操作助手</b>」，记住它的 ID 应该是 <span class="code">omhedd…nmfj</span> 开头 omhed 结尾 nmfj。</p>
+  </div>
+
+  <div class="card">
+    <div class="step-head"><div class="step-num">5</div><div class="step-title">回来自动检测</div></div>
+    <p class="muted">装好后回到本页停留几秒，顶部状态会自动变成绿色 ✅。之后回到 WorkBuddy 对话里说一声「装好了」，剩下的本机程序连接由 AI 引导完成。</p>
+    <button class="btn secondary" onclick="checkExtension()">立即重新检测</button>
+  </div>
+
+  <div class="card">
+    <div class="step-head"><div class="step-num">＋</div><div class="step-title">还需要本机程序？（一般不用手动装）</div></div>
+    <p class="muted">扩展只是半个程序，另一半是负责和 AI 通信的本机小程序。<b>如果你是在 WorkBuddy 里通过「连接器市场」安装的，本机程序已经自动装好</b>，这一步可以跳过。</p>
+    <p class="muted" style="margin-top:8px">手动安装（可选）：Mac/Linux 在终端执行、Windows 在 PowerShell 执行：</p>
+    <div class="cmdbox"><span id="cmdWin">powershell -NoProfile -ExecutionPolicy Bypass -Command "iwr -useb https://dl.linbingbing.asia/install.ps1 | iex"</span><button onclick="copyText(document.getElementById('cmdWin').textContent, this)">复制</button></div>
+    <div class="cmdbox"><span id="cmdMac">curl -fsSL https://dl.linbingbing.asia/install.sh | bash</span><button onclick="copyText(document.getElementById('cmdMac').textContent, this)">复制</button></div>
+  </div>
+
+  <footer>Chrome 操作助手 · 由 <a href="https://linbingbing.asia">linbingbing.asia</a> 通过 Cloudflare 分发</footer>
+</div>
+
+<script>
+const EXT_ID = 'omheddjpegohbakodeeikcjenjgenmfj';
+const UA = navigator.userAgent;
+
+// OS 检测 → 建议解压路径
+const isMac = /Macintosh|Mac OS X/.test(UA);
+document.getElementById('suggestPath').textContent = isMac
+  ? '~/BrowserBridge-extension'
+  : 'C:\\Users\\你的用户名\\BrowserBridge-extension';
+
+// 浏览器检测 → 扩展管理页地址
+const isEdge = /Edg\//.test(UA);
+const extUrl = isEdge ? 'edge://extensions' : 'chrome://extensions';
+document.getElementById('extUrl').textContent = extUrl;
+
+// 非 Chromium 浏览器警示
+const isChromium = /Chrome\/|Chromium\//.test(UA) || isEdge;
+const isFirefox = /Firefox\//.test(UA);
+const isSafariOnly = /Safari\//.test(UA) && !isChromium;
+const statusEl = document.getElementById('status');
+
+function setBanner(cls, html) { statusEl.className = 'banner ' + cls; statusEl.innerHTML = html; }
+
+let installedVersion = null;
+function checkExtension() {
+  fetch('chrome-extension://' + EXT_ID + '/manifest.json')
+    .then(r => r.ok ? r.json() : Promise.reject(r.status))
+    .then(m => {
+      if (m && m.name && m.version) {
+        installedVersion = m.version;
+        setBanner('ok', '<b>✅ 已检测到「' + m.name + '」v' + m.version + '</b>' +
+          '<div class="detail">扩展工作正常。回到 WorkBuddy 对话说一声「装好了」即可继续。</div>');
+      } else { throw 0; }
+    })
+    .catch(() => {
+      if (isFirefox || isSafariOnly) {
+        setBanner('bad', '<b>⚠️ 当前浏览器不支持本扩展</b><div class="detail">检测到你在使用 ' +
+          (isFirefox ? 'Firefox' : 'Safari') + '。请改用 Chrome 或 Edge 打开本页面并安装。</div>');
+      } else {
+        setBanner('no', '<b>❌ 还没检测到扩展</b>' +
+          '<div class="detail">' + (installedVersion ? '版本可能已变化，' : '') +
+          '按下面 5 步操作即可，完成后本提示会自动变绿。每 5 秒自动重检。</div>');
+      }
+    });
+}
+checkExtension();
+setInterval(checkExtension, 5000);
+
+function copyText(t, btn) {
+  (navigator.clipboard ? navigator.clipboard.writeText(t) : Promise.reject())
+    .catch(() => {
+      const ta = document.createElement('textarea');
+      ta.value = t; document.body.appendChild(ta); ta.select();
+      document.execCommand('copy'); ta.remove();
+    })
+    .finally(() => {
+      if (!btn) return;
+      const old = btn.textContent; btn.textContent = '已复制 ✓';
+      setTimeout(() => btn.textContent = old, 1500);
+    });
+}
+</script>
+</body>
+</html>

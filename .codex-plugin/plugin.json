@@ -1,0 +1,19 @@
+{
+  "name": "browser-bridge",
+  "version": "0.2.1",
+  "description": "Chrome 操作助手：通过本机 Chrome 扩展完成已授权网页操作与批量采集。",
+  "author": {
+    "name": "Chrome 操作助手"
+  },
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Chrome 操作助手",
+    "shortDescription": "让 AI 操作 Chrome，截图、填写表单与批量调研。",
+    "longDescription": "使用独立 Chrome 扩展和当前用户本机通信，提供网页观察、表单、授权文件上传下载和可恢复批量采集。",
+    "developerName": "Chrome 操作助手",
+    "category": "Productivity",
+    "capabilities": [],
+    "defaultPrompt": "使用Chrome 操作助手检查 Chrome 连接，并开始一个独立网页任务。"
+  },
+  "mcpServers": "./.mcp.json"
+}

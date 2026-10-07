@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Chrome 操作助手</title>
+    <link rel="stylesheet" href="ui.css" />
+  </head>
+  <body>
+    <header>
+      <div class="brand">CA</div>
+      <div>
+        <h1>Chrome 操作助手</h1>
+        <p>让 AI 帮你操作网页</p>
+      </div>
+      <span class="badge">内部试用</span>
+    </header>
+    <main>
+      <section class="connection">
+        <div class="status">
+          <span id="lamp" class="lamp"></span
+          ><strong id="connection">正在检查连接</strong
+          ><button id="reconnect" class="quiet">重新连接</button>
+        </div>
+        <p id="detail" class="muted"></p>
+        <p id="site-access" class="hint">网站访问：正在检查</p>
+        <details>
+          <summary>配置文件信息</summary>
+          <code id="profile"></code>
+          <div class="row">
+            <input
+              id="name"
+              placeholder="为这个 Chrome 起个名字"
+              aria-label="配置文件名称"
+            /><button id="rename">保存</button>
+          </div>
+        </details>
+      </section>
+      <section>
+        <div class="section-title"><h2>网页截图</h2><span>按需截取，保存在本机</span></div>
+        <div class="row"><select id="capture-tab" aria-label="截图页面"></select></div>
+        <div class="row"><select id="capture-mode" aria-label="截图范围"><option value="viewport">当前可见区域</option><option value="fullpage">整页</option><option value="region">框选区域</option></select><button id="capture">截图</button></div>
+        <p id="capture-path" class="hint"></p><img id="capture-preview" alt="最近一次截图预览" hidden style="max-width:100%;border-radius:8px" />
+      </section>
+      <section>
+        <div class="section-title">
+          <h2>当前任务</h2>
+          <span>不同任务使用独立窗口</span>
+        </div>
+        <div id="tasks"></div>
+      </section>
+      <p id="notice" class="notice" aria-live="polite"></p>
+    </main>
+    <footer>本机连接 · 不导出登录凭据 · 可随时停止</footer>
+    <script src="ui.js"></script>
+  </body>
+</html>
+
