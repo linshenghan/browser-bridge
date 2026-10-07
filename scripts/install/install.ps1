@@ -4,7 +4,7 @@
 $ErrorActionPreference = 'Stop'
 
 $Base      = 'https://dl.linbingbing.asia/browser-bridge'
-$Fallback  = 'https://github.com/CHANGE_ME/browser-bridge/releases/download'
+$Fallback  = 'https://github.com/linshenghan/browser-bridge/releases/download'
 $GUIDE     = 'https://install.linbingbing.asia'
 $Version   = if ($env:TBB_VERSION) { $env:TBB_VERSION } else { '0.2.1' }
 $Root      = Join-Path $env:USERPROFILE 'BrowserBridge'

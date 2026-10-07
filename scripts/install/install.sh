@@ -5,7 +5,7 @@
 set -euo pipefail
 
 BASE="https://dl.linbingbing.asia/browser-bridge"
-FALLBACK="https://github.com/CHANGE_ME/browser-bridge/releases/download"
+FALLBACK="https://github.com/linshenghan/browser-bridge/releases/download"
 VERSION="${TBB_VERSION:-0.2.1}"
 ROOT="$HOME/BrowserBridge"
 GUIDE="https://install.linbingbing.asia"
